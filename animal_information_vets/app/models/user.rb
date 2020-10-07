@@ -4,8 +4,8 @@ class User < ActiveRecord::Base
 
   has_secure_password
 
-  validates :username, :email, presence: true
-  validates :email, uniqueness: true
+  # validates :username, :email, presence: true
+  # validates :email, uniqueness: true
 #   PASSWORD_FORMAT = /\A
 #   (?=.{8,})          # Must contain 8 or more characters
 #   (?=.*\d)           # Must contain a digit
@@ -28,7 +28,7 @@ class User < ActiveRecord::Base
 #   confirmation: true, 
 #   on: :update
 
-  validates_presence_of :password_digest
+  # validates_presence_of :password_digest
 
-  validates_length_of :password, minimum: 8, if: Proc.new { |user| user.password.present? }
+  # validates_length_of :password, minimum: 8, if: Proc.new { |user| user.password.present? }
 end
