@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20201007134607) do
+ActiveRecord::Schema.define(version: 20201007150032) do
 
   create_table "owners", force: :cascade do |t|
     t.integer  "owner_id"
@@ -41,6 +41,8 @@ ActiveRecord::Schema.define(version: 20201007134607) do
     t.string   "password_digest"
     t.datetime "create_at"
     t.datetime "updated_at"
+    t.boolean  "vet?"
+    t.boolean  "owner?"
   end
 
   create_table "vets", force: :cascade do |t|
