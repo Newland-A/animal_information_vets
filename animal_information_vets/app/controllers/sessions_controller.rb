@@ -6,12 +6,16 @@ class SessionsController < ApplicationController
 
   post '/login' do
     #find the user
-    user = User.find_by(email: params[:email])
+    # binding.pry
+    user = User.find_by(username: params[:username])
+    
     #authenticate the user somehow
     if user && user.authenticate(params[:password])
         # log the user in and redirect
+        # binding.pry
         session[:user_id] = user.id
-        redirect "/pets"
+        # binding.pry
+        redirect "/pets/new"
     else
         redirect "/login"
     end

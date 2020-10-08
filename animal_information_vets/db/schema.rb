@@ -11,15 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20201008181921) do
+ActiveRecord::Schema.define(version: 20201008212230) do
 
   create_table "owners", force: :cascade do |t|
-    t.integer  "owner_id"
-    t.string   "username"
-    t.string   "password_digest"
     t.string   "name"
     t.string   "location"
-    t.integer  "pet_id"
     t.datetime "create_at"
     t.datetime "updated_at"
   end
