@@ -1,0 +1,21 @@
+<h1>What pet will you be adding to the family today?</h1>
+
+<form method="POST" action="/pets/new">
+     <%# binding.pry %> 
+  
+    <label for="pet_name">Pet Name:</label>
+    <input type="name" name="pet[:name]" id="pet_name">
+    <br />
+    <label for="pet_age">Pet Age:</label>
+    <input type="age" name="pet[:age]" id="pet_age">
+    <br />
+    <label for="pet_size">Pet Size:</label>
+    <input type="size" name="pet[:size]" id="pet_size">
+    <br />
+    <label for="pet_breed">Pet Breed:</label>
+    <input type="breed" name="pet[:breed]" id="pet_breed">
+    <br />
+  <input type="submit" value="Add Pet">
+</form>
+
+  

@@ -1,0 +1,19 @@
+[]create a log out
+[]create edit pages
+[]create new pages
+
+def current_user
+      @user ||= User.find_by(id: session[:user_id])
+    end
+
+     <!-- <%= check_box_tag(User[:vet_id]) %>
+  <%= label_tag(user[:vet_id], "I am a Vet.") %>
+<%= check_box_tag(:owner_id) %>
+  <%= label_tag(:owner_id, "I am a Owner.") %>
+-->
+
+<select name="user_id">
+        <% @user.each do | user |%>
+            <option value="<%= user.id %>"><%= user.username %></option>
+        <% end %>
+    </select><br />
