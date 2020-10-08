@@ -1,6 +1,4 @@
 class Vet < ActiveRecord::Base
-  has_many :pets, through: :owners
-  has_many :owners, through: :pets
-
-  
+  has_many :pets
+  has_many :owners
 end
