@@ -11,13 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20201008212230) do
+ActiveRecord::Schema.define(version: 20201008213131) do
 
   create_table "owners", force: :cascade do |t|
     t.string   "name"
     t.string   "location"
     t.datetime "create_at"
     t.datetime "updated_at"
+    t.integer  "user_id"
   end
 
   create_table "pets", force: :cascade do |t|
@@ -43,13 +44,11 @@ ActiveRecord::Schema.define(version: 20201008212230) do
   end
 
   create_table "vets", force: :cascade do |t|
-    t.integer  "vet_id"
-    t.string   "name"
+    t.string   "practice_name"
     t.string   "location"
-    t.string   "username"
-    t.string   "password_digest"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "user_id"
   end
 
 end
