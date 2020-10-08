@@ -4,31 +4,10 @@ class User < ActiveRecord::Base
 
   has_secure_password
 
-  # validates :username, :email, presence: true
-  # validates :email, uniqueness: true
-#   PASSWORD_FORMAT = /\A
-#   (?=.{8,})          # Must contain 8 or more characters
-#   (?=.*\d)           # Must contain a digit
-#   (?=.*[a-z])        # Must contain a lower case character
-#   (?=.*[A-Z])        # Must contain an upper case character
-#   (?=.*[[:^alnum:]]) # Must contain a symbol
-# /x
+  validates :username, :email, presence: true
+  validates :email, uniqueness: true
 
-# validates :password, 
-#   presence: true, 
-#   length: { in: Devise.password_length }, 
-#   format: { with: PASSWORD_FORMAT }, 
-#   confirmation: true, 
-#   on: :create 
+  validates_presence_of :password_digest
 
-# validates :password, 
-#   allow_nil: true, 
-#   length: { in: Devise.password_length }, 
-#   format: { with: PASSWORD_FORMAT }, 
-#   confirmation: true, 
-#   on: :update
-
-  # validates_presence_of :password_digest
-
-  # validates_length_of :password, minimum: 8, if: Proc.new { |user| user.password.present? }
+  validates_length_of :password, minimum: 8, if: Proc.new { |user| user.password.present? }
 end
