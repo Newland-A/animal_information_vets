@@ -5,10 +5,34 @@ class ApplicationController < Sinatra::Base
   configure do
     set :public_folder, 'public'
     set :views, 'app/views'
+    enable :sessions
+    set :sessions, true
+    set :session_secret, "password_security"
   end
 
   get "/" do
-    erb :landing
+    erb :index
   end
 
+  helpers do
+    def logged_in?
+      session[:user_id]
+    end
+
+    def current_user
+      @user ||= User.find_by(id: session[:user_id])
+    end
+
+    def redirect_if_not_logged_in
+      if !logged_in?
+        redirect "/users/login"
+      end
+    end
+
+    def redirect_if_logged_in
+      if logged_in?
+        redirect "/show" #change to show once show is created?
+      end
+    end
+  end
 end
