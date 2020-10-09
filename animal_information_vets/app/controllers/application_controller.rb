@@ -26,13 +26,13 @@ class ApplicationController < Sinatra::Base
 
     def redirect_if_not_logged_in
       if !logged_in?
-        redirect "/users/login"
+        redirect "/sessions/login"
       end
     end
 
     def redirect_if_logged_in
       if logged_in?
-        redirect "/show" #change to show once show is created?
+        redirect "/pets" 
       end
     end
   end

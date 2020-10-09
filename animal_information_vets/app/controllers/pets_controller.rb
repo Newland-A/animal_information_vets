@@ -3,7 +3,7 @@ class PetsController < ApplicationController
   get '/pets' do
     redirect_if_not_logged_in
     @pets = Pet.all
-    erb :'pets/index'
+    erb :index
   end
 
   get '/pets/new' do
@@ -21,9 +21,14 @@ class PetsController < ApplicationController
   end
 
   post '/pets' do
-    @pet = current_user.pet.build(params)
+    # binding.pry
+
+    @pet = current_user.pets.build(params)# unknown attribute pet for Pet
+    
+    # binding.pry
+    
     if @pet.save
-      redirect '/pets/#{@pet.id}'
+      redirect "/pets/#{@pet.id}"
     else
       redirect '/pets/new'
     end
@@ -33,7 +38,7 @@ class PetsController < ApplicationController
     redirect_if_not_logged_in
     @users = User.all
     @pet = Pet.find_by_id(params[:id])
-    if @pet.users.id == current_user.id
+    if @pet.user.id == current_user.id
         erb :"pets/edit"
     else
         redirect "/pets"

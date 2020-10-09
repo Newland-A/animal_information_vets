@@ -1,26 +1,27 @@
-<h1>What pet will you be adding to the family today?</h1>
+<h2>What pet will you be adding to the family today?</h2>
 
-<form method="POST" action="/pets">
+<form class="new_pet" method="POST" action="/pets">
      <%# binding.pry %> 
     <select name="vet_id">
-      <% @vet.each do | vet | %>
-        <option value="<% vet.id %>"><%= vet.username %></option>
-      <% end %>
+      <% @vets.each do | vet | %>
+        <option value="<% vet.id %>"><%= vet.username %></option> <%# regardless of which user signs in it displays Moonlight%>
+      <% end %> <%# why did we add a dropdown for the different users in the create new pet fields?%>
     </select>
-    
-    <label for="pet_name">Pet Name:</label>
-    <input type="name" name="pet[:name]" id="pet_name">
     <br />
-    <label for="pet_age">Pet Age:</label>
-    <input type="age" name="pet[:age]" id="pet_age">
     <br />
-    <label for="pet_size">Pet Size:</label>
-    <input type="size" name="pet[:size]" id="pet_size">
+    <input type="text" name="pet[:name]" id="pet_name" class="new-pet-text-input" placeholder="Pet Name">
     <br />
-    <label for="pet_breed">Pet Breed:</label>
-    <input type="breed" name="pet[:breed]" id="pet_breed">
     <br />
-  <input type="submit" value="Add Pet">
+    <input type="text" name="pet[:age]" id="pet_age" class="new-pet-text-input" placeholder="Pet Age">
+    <br />
+    <br />
+    <input type="text" name="pet[:size]" id="pet_size" class="new-pet-text-input" placeholder="Pet Size">
+    <br />
+    <br />
+    <input type="text" name="pet[:breed]" id="pet_breed" class="new-pet-text-input" placeholder="Pet Breed">
+    <br />
+    <br />
+    <input type="submit" value="Add Pet">
 </form>
 
   

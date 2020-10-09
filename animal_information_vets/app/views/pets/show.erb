@@ -1,15 +1,16 @@
-<h1><%= @pets.id%></h1>
+<body>
+    <h1><%= @pets.id%></h1>
 
-<a href="/pets">Back to the index</a>
+    <a href="/pets">Back to the index</a>
 
-<% if @pets.id == current_user.id %>
-<!-- edit link -->
-    <a href="/pets/<%= @pets.id %>/edit">Edit this pet</a><br />
-    <%# delete form %>
-    <h3>Would you like to delete this pet?</h3>
-    <form method="POST" action="/pets/<%= @pets.id %>">
-        <input type="hidden" id="hidden" name="_method" value="DELETE">
-        <input type="submit" value="delete">
-    </form>
-
-<% end %>
+    <% if @pets.id == current_user.id %>
+    <!-- edit link -->
+        <a href="/pets/<%= @pets.id %>/edit">Edit this pet</a><br />
+     <%# delete form %>
+        <h3>Would you like to delete this pet?</h3>
+        <form method="POST" action="/pets/<%= @pets.id %>">
+          <input type="hidden" id="hidden" name="_method" value="DELETE">
+          <input type="submit" value="delete">
+        </form>
+    <% end %>
+</body>
