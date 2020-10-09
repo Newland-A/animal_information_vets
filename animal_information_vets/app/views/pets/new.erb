@@ -2,10 +2,15 @@
 
 <form class="new_pet" method="POST" action="/pets">
      <%# binding.pry %> 
+  
     <select name="vet_id">
+    <% if vet_id = true %>
       <% @vets.each do | vet | %>
         <option value="<% vet.id %>"><%= vet.username %></option> <%# regardless of which user signs in it displays Moonlight%>
       <% end %> <%# why did we add a dropdown for the different users in the create new pet fields?%>
+    <% else %>
+
+    <% end %>
     </select>
     <br />
     <br />
