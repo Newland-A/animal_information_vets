@@ -2,7 +2,12 @@
 
 <form method="POST" action="/pets">
      <%# binding.pry %> 
-  
+    <select name="vet_id">
+      <% @vet.each do | vet | %>
+        <option value="<% vet.id %>"><%= vet.username %></option>
+      <% end %>
+    </select>
+    
     <label for="pet_name">Pet Name:</label>
     <input type="name" name="pet[:name]" id="pet_name">
     <br />
