@@ -1,4 +1,3 @@
-# encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -11,46 +10,29 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20201009041350) do
-
-  create_table "owners", force: :cascade do |t|
-    t.string   "name"
-    t.string   "location"
-    t.datetime "create_at"
-    t.datetime "updated_at"
-    t.integer  "user_id"
-  end
+ActiveRecord::Schema.define(version: 2020_10_09_131832) do
 
   create_table "pets", force: :cascade do |t|
-    t.string   "name"
-    t.string   "age"
-    t.string   "size"
-    t.string   "breed"
+    t.string "name"
+    t.string "age"
+    t.string "size"
+    t.string "breed"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "owner_id"
-    t.integer  "vet_id"
+    t.integer "owner_id"
+    t.integer "vet_id"
   end
 
   create_table "users", force: :cascade do |t|
-    t.string   "name"
-    t.string   "email"
-    t.string   "password_digest"
+    t.string "name"
+    t.string "email"
+    t.string "password_digest"
     t.datetime "create_at"
     t.datetime "updated_at"
-    t.boolean  "is_vet"
-    t.boolean  "is_owner"
-    t.string   "username"
-  end
-
-  add_index "users", ["username"], name: "index_users_on_username", unique: true
-
-  create_table "vets", force: :cascade do |t|
-    t.string   "practice_name"
-    t.string   "location"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "user_id"
+    t.boolean "is_vet"
+    t.boolean "is_owner"
+    t.string "username"
+    t.index ["username"], name: "index_users_on_username", unique: true
   end
 
 end

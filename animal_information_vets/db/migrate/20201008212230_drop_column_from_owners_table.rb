@@ -1,4 +1,4 @@
-class DropColumnFromOwnersTable < ActiveRecord::Migration
+class DropColumnFromOwnersTable < ActiveRecord::Migration[5.2]
   def change
     remove_column :owners, :owner_id
     remove_column :owners, :username
