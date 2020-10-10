@@ -4,6 +4,7 @@ class User < ActiveRecord::Base
   has_many :pets, through: :vets, source: :vet
   has_many :owners, foreign_key: "owner_id", class_name: "Pet"
   has_many :pets, through: :owners, source: :owner
+  
   has_secure_password
 
   validates :username, :email, presence: true

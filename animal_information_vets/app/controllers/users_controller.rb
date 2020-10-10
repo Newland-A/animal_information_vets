@@ -10,9 +10,9 @@ class UsersController < ApplicationController
     else
       # binding.pry
       if params[:vet_id] == "is_vet"
-        @user = User.new(:username => params[:username], :email => params[:email], :password => params[:password], :is_vet => true)
+        @user = User.new(:name => params[:name], :username => params[:username], :email => params[:email], :password => params[:password], :is_vet => true)
       else
-        @user = User.new(:username => params[:username], :email => params[:email], :password => params[:password], :is_owner => true) 
+        @user = User.new(:name => params[:name], :username => params[:username], :email => params[:email], :password => params[:password], :is_owner => true) 
       end
       @user.save
       session[:user_id] = @user.id

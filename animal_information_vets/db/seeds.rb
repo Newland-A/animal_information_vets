@@ -1,13 +1,13 @@
 5.times do
-  User.create(username: Faker::Internet.username(specifier: 8), email: Faker::Internet.email, password: Faker::Internet.password(min_length: 8))
+  User.create(name: Faker::Name.name, username: Faker::Internet.username(specifier: 8), email: Faker::Internet.email, password: Faker::Internet.password(min_length: 8), is_vet: true, is_owner: false)
 end
 
 5.times do
-  User.create(username: Faker::Internet.username(specifier: 8), email: Faker::Internet.email, password: Faker::Internet.password(min_length: 8))
+  User.create(name: Faker::Name.name, username: Faker::Internet.username(specifier: 8), email: Faker::Internet.email, password: Faker::Internet.password(min_length: 8), is_vet: false, is_owner: true )
 end
 
 5.times do
-  User.create(username: Faker::Internet.username(specifier: 8), email: Faker::Internet.email, password: Faker::Internet.password(min_length: 8))
+  User.create(name: Faker::Name.name, username: Faker::Internet.username(specifier: 8), email: Faker::Internet.email, password: Faker::Internet.password(min_length: 8), is_vet: true, is_owner: true)
 end
 
 5.times do 

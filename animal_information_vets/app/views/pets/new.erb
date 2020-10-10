@@ -1,15 +1,17 @@
 <h2>What pet will you be adding to the family today?</h2>
 
 <form class="new_pet" method="POST" action="/pets">
-     <%# binding.pry %> 
+     <%# binding.pry  %>
   
     <select name="vet_id">
-    <% if vet_id = true %>
+    <% if current_user.is_owner == true %>
       <% @vets.each do | vet | %>
-        <option value="<% vet.id %>"><%= vet.username %></option> <%# regardless of which user signs in it displays Moonlight%>
+        <option value="<%= vet.id %>"><%= vet.name %></option> <%# regardless of which user signs in it displays Moonlight%>
       <% end %> <%# why did we add a dropdown for the different users in the create new pet fields?%>
     <% else %>
-
+      <% @owners.each do | owner | %>
+         <option value="<%= owner.id %>"><%= owner.name %></option> 
+        <% end %>
     <% end %>
     </select>
     <br />
