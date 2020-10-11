@@ -19,4 +19,10 @@ class UsersController < ApplicationController
       redirect to '/pets/new'
     end
   end
+
+  get'/users/:id' do
+    @pets = current_user.pets
+    binding.pry
+    erb :"users/show"
+  end
 end

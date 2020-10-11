@@ -254,3 +254,11 @@ PetController
          <option value="<% owner.id %>"><%= owner.name %></option> 
         <% end %>
     <% end %> -->
+Edit loop
+        <select name="user_id">
+    <%# binding.pry %>
+        <% @pets.each do | pet | %>
+        <%# binding.pry %>
+            <option value="<%= pet.id %>"><%= pet.name %></option>
+        <% end %>
+    </select>
