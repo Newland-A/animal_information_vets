@@ -1,5 +1,7 @@
 <body>
-  <button><a href="/show">Home</a></button>
+<h1>Here is all your pets information</h1>
+<h2>You can edit or add a new pet</h2>
+  <%# <button><a href="/views/index.erb">Home</a></button> %>
     <h2>Pet Name: <%= @pets.name %></h2>
     <h3>Pet Age: <%= @pets.age %></h3>
     <h3>Pet Size: <%= @pets.size %></h3>
@@ -11,9 +13,14 @@
     
     <% if @pets.owner.id == current_user.id %>
     <!-- edit link -->
-    
         <br />
      <%# delete form %>
+        <h3>Would you like to delete this pet?</h3>
+        <form method="POST" action="/pets/<%= @pets.id %>">
+          <input type="hidden" id="hidden" name="_method" value="DELETE">
+          <input type="submit" value="delete">
+        </form>
+      <% else %>
         <h3>Would you like to delete this pet?</h3>
         <form method="POST" action="/pets/<%= @pets.id %>">
           <input type="hidden" id="hidden" name="_method" value="DELETE">

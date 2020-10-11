@@ -4,15 +4,21 @@
     <title>Animal Tracker</title>
   </head>
   <body>
+    <% if logged_in? %>
+      <button><a href="/logout">Log Out</a></button>  
+    <% else !logged_in? %>
+      <button><a href="/login">Log In</a></button>
+    <% end %>
+    <button><a href="/signup">Sign Up!</a></button>
+    
     <h1>Welcome Animal Lovers</h1>
     <p>This web site is for veternarians and owners to be able to communicate about pets information. To keep track of excercise routines and feeding habits.</p>
-    <p>Here you can keep track of what owner has vet and how many pets each owner owns. The age, breed, size of the pet. More features coming soon... Intentions are to be able to keep track of medications exercise and training schedules for larger animals
-    <p><strong>If you are a new Owner or Vet, Please <a href="/signup">Sign Up</a> here! </strong></p>
-    <p><strong>If you are already signed up, please <a href="/login">login</a> here!</strong></p>
     
-    <button><a href="/pets/:id/edit">Edit Pets</a></button>
+    <p>Here you can keep track of what owner has vet and how many pets each owner owns. The age, breed, size of the pet. More features coming soon... 
+    Intentions are to be able to keep track of medications exercise and training schedules for larger animals. Please checkback later to see what new features have been added.
+    Soon there will be a suggestions section for you to add suggested features that you see useful as a vet or as an owner. Thank you and enjoy the snuggles from the fuzzy ones.
+    </p>
     
-    
-
+    <%# <button><a href="/pets/:id/edit">Edit Pets</a></button> %>
   </body>
 </html>

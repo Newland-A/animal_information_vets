@@ -12,7 +12,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <link rel="stylesheets" href="/stylesheets/main.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <%# <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"> %>
   </head>
   <body>
     <header>
@@ -21,15 +21,17 @@
       <div class="wrapper">
 
         <%= yield %>
-      
+
+      <br />
       <footer class="branding">
       <% if logged_in? %>
-          <h4>Welcome <%= current_user.name.capitalize %>!</h4>      
-          <h4><a href="/logout">Log Out</a></h4>
+          <h4>Welcome <%= current_user.name.downcase.capitalize %>!</h4>      
+          <button><a href="/logout">Log Out</a></button>
       <% else !logged_in? %>
-          <h4><a href="/login">Log In</a></h4>
+          <button><a href="/login">Log In</a></button>
+          <button><a href="/signup">Sign Up!</a></button>
       <% end %>
-        
+        <br />
         <small>&copy; 2020 <strong>Animal Information for Vets and Owners</strong></small>
       </footer>
     </div>

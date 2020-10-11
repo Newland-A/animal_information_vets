@@ -83,6 +83,6 @@ class PetsController < ApplicationController
       # binding.pry
         @pets.destroy
     end
-    redirect "/pets"
+    redirect "/pets/new"
   end
 end

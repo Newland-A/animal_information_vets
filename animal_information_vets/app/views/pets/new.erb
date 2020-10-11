@@ -2,15 +2,18 @@
 
 <form class="new_pet" method="POST" action="/pets">
      <%# binding.pry  %>
-  <h3>Please select your vet:</h3>
+  Please select the name of your vet?
+  <br />
     <select name="vet_id">
     
     <% if current_user.is_owner == true %>
+   
       <% @vets.each do | vet | %>
         <option value="<%= vet.id %>"><%= vet.name %></option> 
       <% end %> 
     <% else %>
-      <% @owners.each do | owner | %>
+    
+          <% @owners.each do | owner | %>
          <option value="<%= owner.id %>"><%= owner.name %></option> 
         <% end %>
     <% end %>
