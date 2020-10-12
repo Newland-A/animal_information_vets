@@ -27,6 +27,7 @@
       <% if logged_in? %>
           <h4>Welcome <%= current_user.name.downcase.capitalize %>!</h4>      
           <button><a href="/logout">Log Out</a></button>
+          <button><a href="/index">Home</a></button>
       <% else !logged_in? %>
           <button><a href="/login">Log In</a></button>
           <button><a href="/signup">Sign Up!</a></button>

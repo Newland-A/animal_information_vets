@@ -17,6 +17,7 @@ class SessionsController < ApplicationController
         # binding.pry
         redirect "/pets/new"
     else
+      flash[:notice] = "You've entered an invalid email or password. Please try again."
         redirect "/login"
     end
   end

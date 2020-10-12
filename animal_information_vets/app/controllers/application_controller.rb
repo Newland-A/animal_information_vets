@@ -15,6 +15,11 @@ class ApplicationController < Sinatra::Base
     erb :index
   end
 
+  get "/index" do
+    redirect_if_logged_in
+    erb :index
+  end
+  
   helpers do
     def logged_in?
       session[:user_id]
@@ -32,7 +37,7 @@ class ApplicationController < Sinatra::Base
 
     def redirect_if_logged_in
       if logged_in?
-        redirect "/pets/show" 
+        redirect "/pets" 
       end
     end
   end

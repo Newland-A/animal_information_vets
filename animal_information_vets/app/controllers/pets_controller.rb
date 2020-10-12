@@ -7,13 +7,6 @@ class PetsController < ApplicationController
     erb :index
   end
 
-  # get '/pets/:id' do
-  #   redirect_if_not_logged_in
-  #   @pets = Pet.find_by_id(params[:id])
-  #   # binding.pry
-  #   erb :"pets/show"
-  # end
-
   get '/pets/new' do
     redirect_if_not_logged_in
     @vets = User.where(is_vet: true)
@@ -30,7 +23,7 @@ class PetsController < ApplicationController
   end
 
   post '/pets' do
-    # @pet = current_user.pets.build(params)
+    
     if params[:vet_id] != nil
       @pets = Pet.new(vet_id: params[:vet_id], owner_id: current_user.id, name: params[:pet][":name"], age: params[:pet][":age"], size: params[:pet][":size"], breed: params[:pet][":breed"])
     else 
