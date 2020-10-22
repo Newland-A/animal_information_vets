@@ -6,7 +6,9 @@ end
 
 use Rack::MethodOverride
 
-use PetsController
-use UsersController
+
+
 use SessionsController
+use UsersController
+use PetsController
 run ApplicationController

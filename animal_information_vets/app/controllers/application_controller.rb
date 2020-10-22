@@ -19,7 +19,7 @@ class ApplicationController < Sinatra::Base
     redirect_if_logged_in
     erb :index
   end
-  
+
   helpers do
     def logged_in?
       session[:user_id]

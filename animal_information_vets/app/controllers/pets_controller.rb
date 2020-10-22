@@ -3,7 +3,7 @@ class PetsController < ApplicationController
   get '/pets' do
     redirect_if_not_logged_in
     @pets = Pet.all
-    
+    # binding.pry
     erb :index
   end
 
@@ -15,13 +15,6 @@ class PetsController < ApplicationController
     erb :"pets/new"
   end
   
-  get '/pets/:id' do
-    redirect_if_not_logged_in
-    @pets = Pet.find_by_id(params[:id])
-    # binding.pry
-    erb :"pets/show"
-  end
-
   post '/pets' do
     
     if params[:vet_id] != nil
@@ -38,6 +31,12 @@ class PetsController < ApplicationController
 
   end
 
+  get '/pets/:id' do
+    redirect_if_not_logged_in
+    @pets = Pet.find_by_id(params[:id])
+    erb :"pets/show"
+  end
+
   get '/pets/:id/edit' do
     redirect_if_not_logged_in
     @users = User.all
@@ -45,10 +44,10 @@ class PetsController < ApplicationController
     # @pets = Pet.all.select{|pet| pet.user_id == current_user.id}
     # binding.pry
     # if @pets.user.id == current_user.id
-    if @pets.owner.id == current_user.id
+    if @pets.owner_id == current_user.id
       # binding.pry
         erb :"pets/edit"
-    elsif @pets.vets.id == current_user.id
+    elsif @pets.vet_id == current_user.id
       erb :"pets/edit"
     else
         redirect "/pets"
@@ -58,6 +57,7 @@ class PetsController < ApplicationController
 
   patch '/pets/:id' do
     @pets = Pet.find_by_id(params[:id])
+    # binding.pry
     params.delete("_method")
     if @pets.update(params)
         redirect "/pets/#{@pets.id}"
@@ -69,7 +69,7 @@ class PetsController < ApplicationController
   delete '/pets/:id' do
     @pets = Pet.find_by_id(params[:id])
     # binding.pry
-    if @pets.owner.id == current_user.id
+    if @pets.owner_id == current_user.id
       # binding.pry
         @pets.destroy
     else 

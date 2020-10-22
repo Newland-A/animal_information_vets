@@ -1,17 +1,23 @@
 <body>
-<h1>Here is all your pets information</h1>
+<h1>Here is your pets information</h1>
 <h2>You can edit or add a new pet</h2>
   <%# <button><a href="/views/index.erb">Home</a></button> %>
-    <h2>Pet Name: <%= @pets.name %></h2>
-    <h3>Pet Age: <%= @pets.age %></h3>
-    <h3>Pet Size: <%= @pets.size %></h3>
-    <h3>Pet Breed: <%= @pets.breed %></h3>
-    <button><a href="/pets/<%= @pets.id %>/edit">Edit this pet</a></button>
+  <%# @pets.each do |pet| %>
+    <h2>Pet Name: <%= @pets.name.capitalize %></h2>
+    <h3>Pet Age: <%= @pets.age.capitalize %></h3>
+    <h3>Pet Size: <%= @pets.pet_size.capitalize %></h3>
+    <h3>Pet Breed: <%= @pets.breed.capitalize %></h3>
+    <!--
+    <h2>Pet Name: <%#= pet.name %></h2>
+    <h3>Pet Age: <%#= pet.age %></h3>
+    <h3>Pet Size: <%#= pet.size %></h3>
+    <h3>Pet Breed: <%#= pet.breed %></h3>-->
+  <%# end %>
+    <button><a href="/pets/<%= @pets.id %>/edit">Edit pet</a></button>
+    <button><a href="/pets/<%= @pets.id %>/new">Add Pet</a></button>
     <%# binding.pry %>
-
     
-    
-    <% if @pets.owner.id == current_user.id %>
+    <% if @pets.owner_id == current_user.id %>
     <!-- edit link -->
         <br />
      <%# delete form %>
@@ -20,11 +26,16 @@
           <input type="hidden" id="hidden" name="_method" value="DELETE">
           <input type="submit" value="delete">
         </form>
-      <% else %>
+    <% else %>
         <h3>Would you like to delete this pet?</h3>
         <form method="POST" action="/pets/<%= @pets.id %>">
           <input type="hidden" id="hidden" name="_method" value="DELETE">
           <input type="submit" value="delete">
         </form>
     <% end %>
+
+    <%#= form_for(@pets) do |f| %>
+      <%#= f.hidden_field :pet_id %>
+      <%#= f.submit :delete %>
+    <%# end %>
 </body>

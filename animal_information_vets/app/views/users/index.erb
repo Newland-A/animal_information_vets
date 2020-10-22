@@ -1,0 +1,19 @@
+<h1> Hello <%= current_user.name.capitalize %></h1>
+
+<!-- <select name="user_id">-->
+    <%# binding.pry %>
+        <%# @pets.each do | pet | %>
+            <!--<option value="<%#= pet.id %>"><%#= pet.name %></option>-->
+           <!-- <h2>Pet Name: <%#= @pets.name.capitalize %></h2>
+            <h3>Pet Age: <%#= @pets.age.capitalize %></h3>
+            <h3>Pet Size: <%#= @pets.pet_size.capitalize %></h3>
+            <h3>Pet Breed: <%#= @pets.breed.capitalize %></h3>
+        <%# end %> -->
+    <!--</select>-->
+
+<% @pets.each do |pet| %> 
+<%# binding.pry = true %>
+    <p>
+        <li> <a href="/pets/<%= pet.id %>"><%= pet.name.capitalize %></a></li>
+   </p>
+<% end %>

@@ -25,19 +25,21 @@
       <br />
       <footer class="branding">
       <% if logged_in? %>
-          <h4>Welcome <%= current_user.name.downcase.capitalize %>!</h4>      
+          <h4>Welcome <%= current_user.name.capitalize %>!</h4>      
           <button><a href="/logout">Log Out</a></button>
           <button><a href="/index">Home</a></button>
+          
       <% else !logged_in? %>
           <button><a href="/login">Log In</a></button>
           <button><a href="/signup">Sign Up!</a></button>
       <% end %>
         <br />
+        <br />
         <small>&copy; 2020 <strong>Animal Information for Vets and Owners</strong></small>
       </footer>
     </div>
 
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+    <%# <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script> %>
     <!--[if lt IE 7]>
       <script src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.2/CFInstall.min.js"></script>
       <script>window.attachEvent("onload",function(){CFInstall.check({mode:"overlay"})})</script>

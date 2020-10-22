@@ -4,12 +4,15 @@
     <title>Animal Tracker</title>
   </head>
   <body>
+    <br />
     <% if logged_in? %>
-      <button><a href="/logout">Log Out</a></button>  
+      <button><a href="/logout">Log Out</a></button>
+      <button><a href="/users/index">Edit pet</a></button>
+      <button><a href="/pets/new">Add Pet</a></button>
     <% else !logged_in? %>
       <button><a href="/login">Log In</a></button>
+      <button><a href="/signup">Sign Up!</a></button>
     <% end %>
-    <button><a href="/signup">Sign Up!</a></button>
     
     <h1>Welcome Animal Lovers</h1>
     <p>This web site is for veternarians and owners to be able to communicate about pets information. To keep track of excercise routines and feeding habits.</p>

@@ -15,9 +15,9 @@ class SessionsController < ApplicationController
         # binding.pry
         session[:user_id] = user.id
         # binding.pry
-        redirect "/pets/new"
+        redirect "/users/show"
     else
-      flash[:notice] = "You've entered an invalid email or password. Please try again."
+      # flash[:notice] = "You've entered an invalid email or password. Please try again."
         redirect "/login"
     end
   end

@@ -20,9 +20,9 @@ class UsersController < ApplicationController
     end
   end
 
-  # get'/users/:id' do
-  #   @pets = current_user.pets
-  #   binding.pry
-  #   erb :"users/show"
-  # end
+  get'/users/:id' do
+    @pets = current_user.pets.all
+    binding.pry
+    erb :"users/show"
+  end
 end

@@ -1,31 +1,30 @@
-<h2>What pet will you be adding to the family today?</h2>
+<h3>What pet will you be adding to the family today?</h3>
 
 <form class="new_pet" method="POST" action="/pets">
      <%# binding.pry  %>
-  <h2>Please select the name of your vet?</h2>
+  <h4>Please select the name of your vet?</h4>
   <br />
     <select name="vet_id">
-    
     <% if current_user.is_owner == true %>
-      <% @vets.each do | vet | %>
-        <option value="<%= vet.id %>"><%= vet.name %></option> 
-      <% end %> 
+        <% @vets.each do | vet | %>
+          <option value="<%= vet.id %>"><%= vet.name %></option> 
+        <% end %>
+    <% else %>
+        <% @owners.each do |owner| %>
+          <option value="<%= owner.id %>"><%= owner.name %></option>
+        <% end %> 
     <% end %>
     </select>
     <br />
     <br />
     <input type="text" name="pet[:name]" id="pet_name" class="new-pet-text-input" placeholder="Pet Name" >
-    <br />
-    <br />
+    <br /><br />
     <input type="text" name="pet[:age]" id="pet_age" class="new-pet-text-input" placeholder="Pet Age">
-    <br />
-    <br />
-    <input type="text" name="pet[:size]" id="pet_size" class="new-pet-text-input" placeholder="Pet Size">
-    <br />
-    <br />
+    <br /><br />
+    <input type="text" name="pet[:pet_size]" id="pet_size" class="new-pet-text-input" placeholder="Pet Size">
+    <br /><br />
     <input type="text" name="pet[:breed]" id="pet_breed" class="new-pet-text-input" placeholder="Pet Breed">
-    <br />
-    <br />
+    <br /><br />
     <input type="submit" value="Add Pet">
 </form>
 
